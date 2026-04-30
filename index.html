@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashburton Cleaning Services | Cleaning to a Standard, Not a Price</title>
+<meta name="description" content="Ashburton Cleaning Services — locally owned commercial and domestic cleaning in Mid Canterbury. 20+ years experience, police-vetted staff, eco-friendly products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:   #0c2b38;
+  --ink2:  #163849;
+  --ink3:  #1f4a5e;
+  --teal:  #00b4cc;
+  --teal2: #009ab0;
+  --tealL: #d0f3f8;
+  --off:   #f4fbfc;
+  --white: #ffffff;
+  --text:  #0c2b38;
+  --body:  rgba(12,43,56,0.68);
+  --dim:   rgba(12,43,56,0.38);
+  --card:  rgba(255,255,255,0.72);
+  --border:rgba(0,180,204,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%; height: 78px;
+  transition: background .35s, box-shadow .35s;
+}
+nav.scrolled {
+  background: rgba(12,43,56,.97);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+}
+.nav-logo {
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700;
+  color: #fff; text-decoration: none; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: .55rem;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px; border-radius: 8px; background: var(--teal);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo-mark svg { width: 18px; height: 18px; stroke: #fff; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: rgba(255,255,255,.62); text-decoration: none;
+  font-size: .78rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: var(--teal) !important; color: var(--ink) !important; font-weight: 600 !important;
+  padding: .45rem 1.2rem; border-radius: 6px;
+  transition: background .2s, transform .2s !important;
+}
+.nav-cta:hover { background: var(--teal2) !important; transform: translateY(-1px) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: all .3s; }
+.mob-menu {
+  display: none; position: fixed; top: 78px; left: 0; right: 0;
+  background: rgba(12,43,56,.98); backdrop-filter: blur(18px);
+  z-index: 190; padding: 1.5rem 6%; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.mob-menu.open { display: block; }
+.mob-menu a {
+  display: block; padding: .75rem 0; color: rgba(255,255,255,.7);
+  text-decoration: none; font-size: .9rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,.06); transition: color .2s;
+}
+.mob-menu a:last-child { border: none; background: var(--teal); color: var(--ink); text-align: center; border-radius: 6px; margin-top: .6rem; padding: .75rem; font-weight: 600; }
+.mob-menu a:hover { color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://www.ashburtoncleaning.co.nz/wp-content/uploads/2020/10/commercial-cleaning.jpg') center/cover no-repeat;
+  filter: saturate(.85);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, rgba(12,43,56,.92) 0%, rgba(12,43,56,.75) 55%, rgba(12,43,56,.35) 100%);
+}
+.hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to top, var(--white), transparent); }
+.hero-inner {
+  position: relative; z-index: 2; width: 100%;
+  padding: 78px 6% 5rem;
+  max-width: 720px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--teal); }
+h1.hero-h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 800; line-height: 1.0; color: #fff;
+  letter-spacing: -.025em; margin-bottom: 1.4rem;
+}
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,.8);
+  line-height: 1.75; max-width: 480px; margin-bottom: 2.2rem;
+  font-weight: 400;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: var(--teal); color: var(--ink); text-decoration: none;
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .95rem;
+  padding: .92rem 2.2rem; border-radius: 8px; letter-spacing: .01em;
+  transition: all .25s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,180,204,.38); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: transparent; color: rgba(255,255,255,.8); text-decoration: none;
+  font-weight: 500; font-size: .95rem; padding: .92rem 1.8rem;
+  border-radius: 8px; border: 1px solid rgba(255,255,255,.28); transition: all .25s;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+.hero-trust { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.h-pill {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .78rem; color: rgba(255,255,255,.62); font-weight: 500;
+}
+.h-pill svg { width: 14px; height: 14px; stroke: var(--teal); flex-shrink: 0; }
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--ink);
+  padding: 1rem 6%;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 2rem 3.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.t-item {
+  display: flex; align-items: center; gap: .65rem;
+  font-family: 'Outfit', sans-serif; font-size: .8rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.55);
+}
+.t-item svg { width: 16px; height: 16px; stroke: var(--teal); flex-shrink: 0; }
+
+/* ── SECTIONS ── */
+section { padding: 5.5rem 6%; }
+.eyebrow {
+  font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--teal2); margin-bottom: .75rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.eyebrow::before { content: ''; width: 16px; height: 2px; background: var(--teal); }
+.sh {
+  font-family: 'Outfit', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--text); letter-spacing: -.025em; line-height: 1.0; margin-bottom: 1.1rem;
+}
+.sec-body { font-size: .95rem; color: var(--body); line-height: 1.82; max-width: 520px; }
+
+/* ── SERVICES ── */
+#services { background: var(--off); }
+.services-intro { text-align: center; max-width: 580px; margin: 0 auto 3.5rem; }
+.services-intro .eyebrow { justify-content: center; }
+.services-intro .sec-body { margin: 0 auto; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.svc-card {
+  background: var(--white); border: 1px solid rgba(0,180,204,.12);
+  border-radius: 16px; padding: 2rem 1.8rem;
+  transition: all .3s; position: relative; overflow: hidden;
+}
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--teal); transform: scaleX(0); transform-origin: left;
+  transition: transform .3s;
+}
+.svc-card:hover { box-shadow: 0 12px 36px rgba(0,180,204,.12); transform: translateY(-4px); border-color: rgba(0,180,204,.28); }
+.svc-card:hover::before { transform: scaleX(1); }
+.svc-icon-wrap {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(0,180,204,.08); border: 1px solid rgba(0,180,204,.18);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.svc-icon-wrap svg { width: 22px; height: 22px; stroke: var(--teal2); }
+.svc-name {
+  font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700;
+  color: var(--text); margin-bottom: .5rem; letter-spacing: -.01em;
+}
+.svc-desc { font-size: .86rem; color: var(--body); line-height: 1.68; }
+
+/* ── ABOUT ── */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img-wrap { position: relative; }
+.about-img-wrap img {
+  width: 100%; height: 520px; object-fit: cover;
+  border-radius: 20px; display: block; filter: saturate(.9);
+}
+.about-badge {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  background: var(--teal); color: var(--ink);
+  font-family: 'Outfit', sans-serif; font-weight: 800;
+  border-radius: 14px; padding: 1.2rem 1.6rem; text-align: center;
+  box-shadow: 0 8px 24px rgba(0,180,204,.35);
+}
+.about-badge-n { font-size: 2.4rem; line-height: 1; }
+.about-badge-l { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-top: .25rem; }
+.about-text .sh { margin-bottom: 1.2rem; }
+.about-points { display: flex; flex-direction: column; gap: .85rem; margin-top: 2rem; }
+.a-point { display: flex; align-items: flex-start; gap: .85rem; }
+.a-dot {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(0,180,204,.1); border: 1px solid rgba(0,180,204,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.a-dot svg { width: 14px; height: 14px; stroke: var(--teal2); }
+.a-point-text strong { font-size: .9rem; font-weight: 600; color: var(--text); display: block; margin-bottom: .15rem; }
+.a-point-text span { font-size: .84rem; color: var(--body); line-height: 1.6; }
+
+/* ── GALLERY ── */
+#gallery { background: var(--off); padding: 5rem 6%; }
+.gallery-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 300px 220px;
+  gap: 1rem;
+}
+.g-item { border-radius: 14px; overflow: hidden; position: relative; }
+.g-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.88); transition: transform .5s; }
+.g-item:hover img { transform: scale(1.04); }
+.g-item:first-child { grid-row: 1 / 3; }
+.g-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,43,56,.6) 0%, transparent 50%);
+  opacity: 0; transition: opacity .3s;
+}
+.g-item:hover .g-overlay { opacity: 1; }
+
+/* ── REVIEWS ── */
+#reviews { background: var(--ink); padding: 5.5rem 6%; }
+.reviews-top { display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: center; margin-bottom: 3.5rem; }
+.g-badge {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px; padding: 2rem 2.4rem; text-align: center; min-width: 200px;
+}
+.g-badge-label { font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: .4rem; }
+.g-score { font-family: 'Outfit', sans-serif; font-size: 3.8rem; font-weight: 800; color: #fff; line-height: 1; }
+.g-stars { display: flex; justify-content: center; gap: 3px; margin: .4rem 0; }
+.g-star { color: #f59e0b; font-size: 1.1rem; }
+.g-count { font-size: .72rem; color: rgba(255,255,255,.35); margin-bottom: 1.1rem; }
+.review-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .55rem 1.1rem; border-radius: 7px;
+  background: rgba(0,180,204,.1); border: 1px solid rgba(0,180,204,.25);
+  color: var(--teal); font-size: .76rem; font-weight: 600;
+  text-decoration: none; transition: all .25s; font-family: 'Inter', sans-serif;
+}
+.review-link:hover { background: rgba(0,180,204,.2); }
+.reviews-intro .eyebrow { margin-bottom: .8rem; }
+.reviews-intro .sh { color: #fff; margin-bottom: .8rem; }
+.reviews-intro p { font-size: .93rem; color: rgba(255,255,255,.55); line-height: 1.8; max-width: 440px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+.rev-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px; padding: 1.7rem; transition: border-color .28s;
+  display: flex; flex-direction: column; gap: .9rem;
+}
+.rev-card:hover { border-color: rgba(0,180,204,.25); }
+.rev-header { display: flex; align-items: center; gap: .75rem; }
+.rev-avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif; font-size: .9rem; font-weight: 700; color: #fff;
+}
+.rev-name { font-size: .9rem; font-weight: 600; color: #fff; }
+.rev-role { font-size: .74rem; color: rgba(255,255,255,.38); }
+.rev-stars { display: flex; gap: 2px; }
+.r-star { color: #f59e0b; font-size: .82rem; }
+.rev-text { font-size: .87rem; color: rgba(255,255,255,.62); line-height: 1.74; font-style: italic; }
+.rev-source { display: flex; align-items: center; gap: .4rem; font-size: .7rem; color: rgba(255,255,255,.28); margin-top: auto; }
+
+/* ── CONTACT ── */
+#contact { background: var(--off); }
+.contact-grid { display: grid; grid-template-columns: 1fr 500px; gap: 5rem; align-items: start; }
+.contact-info .sh { margin-bottom: .9rem; }
+.contact-info > p { font-size: .93rem; color: var(--body); line-height: 1.82; margin-bottom: 2.2rem; max-width: 380px; }
+.contact-details { display: flex; flex-direction: column; gap: 1rem; }
+.c-row { display: flex; align-items: flex-start; gap: .85rem; }
+.c-icon-wrap {
+  width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(0,180,204,.08); border: 1px solid rgba(0,180,204,.15);
+  display: flex; align-items: center; justify-content: center;
+}
+.c-icon-wrap svg { width: 18px; height: 18px; stroke: var(--teal2); }
+.c-label { font-size: .67rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: .12rem; }
+.c-val { font-size: .92rem; color: var(--text); font-weight: 500; text-decoration: none; transition: color .2s; display: block; }
+.c-val:hover { color: var(--teal2); }
+.contact-form-wrap {
+  background: var(--white); border: 1px solid rgba(0,180,204,.12);
+  border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(12,43,56,.06);
+}
+.form-title { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 1.6rem; letter-spacing: -.01em; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+.form-group { margin-bottom: .9rem; }
+.form-group label { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); margin-bottom: .38rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: .78rem 1rem;
+  background: var(--off); border: 1px solid rgba(12,43,56,.12);
+  border-radius: 9px; color: var(--text); font-family: 'Inter', sans-serif;
+  font-size: .9rem; outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--dim); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,180,204,.12);
+}
+.form-group select option { background: #fff; color: var(--text); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-submit {
+  width: 100%; padding: .95rem; background: var(--teal); color: var(--ink);
+  border: none; border-radius: 9px; font-size: .95rem; font-weight: 700;
+  cursor: pointer; transition: all .25s; margin-top: .2rem; letter-spacing: .01em;
+  font-family: 'Outfit', sans-serif;
+}
+.form-submit:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,180,204,.3); }
+.form-note { font-size: .74rem; color: var(--dim); text-align: center; margin-top: .75rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink2);
+  padding: 2.8rem 6%;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.foot-brand { font-family: 'Outfit', sans-serif; font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
+.foot-tagline { font-size: .76rem; color: rgba(255,255,255,.4); font-style: italic; margin-bottom: .3rem; }
+.foot-copy { font-size: .72rem; color: rgba(255,255,255,.28); }
+.foot-links { display: flex; gap: 2rem; }
+.foot-links a { font-size: .73rem; color: rgba(255,255,255,.38); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+.foot-links a:hover { color: var(--teal); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+.stagger-1 { transition-delay: .1s; }
+.stagger-2 { transition-delay: .2s; }
+.stagger-3 { transition-delay: .3s; }
+.stagger-4 { transition-delay: .4s; }
+.stagger-5 { transition-delay: .5s; }
+.stagger-6 { transition-delay: .6s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 1060px) {
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-img-wrap img { height: 380px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .g-item:first-child { grid-row: auto; }
+  .reviews-top { grid-template-columns: 1fr; gap: 2rem; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .foot-links { justify-content: center; }
+}
+@media(max-width: 680px) {
+  section { padding: 4rem 5%; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  h1.hero-h1 { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+  .contact-grid { gap: 3rem; }
+  .contact-form-wrap { padding: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+    Ashburton Cleaning
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#reviews" onclick="closeMob()">Reviews</a>
+  <a href="#contact" onclick="closeMob()">Get a Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Ashburton, Mid Canterbury</div>
+    <h1 class="hero-h1">Cleaning to a<br>Standard,<br>Not a Price.</h1>
+    <p class="hero-sub">Commercial and domestic cleaning done properly — by a locally owned team with over 20 years in the industry and a genuine commitment to getting it right.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+    <div class="hero-trust">
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        20+ Years Experience
+      </div>
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Police-Vetted Staff
+      </div>
+      <div class="h-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7l1 9h5l1-6H6M16 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-9 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+        Locally Owned
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    20+ Years in the Industry
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Police-Vetted Team
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Ashburton Based
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    Not a Franchise
+  </div>
+  <div class="t-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M7 12.5l3 3 6-6"/></svg>
+    Eco-Friendly Products
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro fade-up">
+    <div class="eyebrow">What we do</div>
+    <h2 class="sh">A full range of<br>cleaning services.</h2>
+    <p class="sec-body">Whether it's your office, home, rental property, or a brand-new build — Ashburton Cleaning Services has you covered with tailored, professional cleaning every time.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="svc-card fade-up stagger-1">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="svc-name">Commercial Cleaning</div>
+      <p class="svc-desc">General office cleaning, hard floor maintenance, and window cleaning. Customised schedules — after hours or during business — to suit your operation.</p>
+    </div>
+
+    <div class="svc-card fade-up stagger-2">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="svc-name">Domestic Cleaning</div>
+      <p class="svc-desc">Individually tailored cleaning plans for your home. Weekly, fortnightly, monthly, or one-off — we work around your schedule and your priorities.</p>
+    </div>
+
+    <div class="svc-card fade-up stagger-3">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </div>
+      <div class="svc-name">Window Cleaning</div>
+      <p class="svc-desc">Professional streak-free window cleaning for commercial and domestic clients. We use industry methods that leave your glass spotless inside and out.</p>
+    </div>
+
+    <div class="svc-card fade-up stagger-4">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3H9a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+      </div>
+      <div class="svc-name">End of Tenancy</div>
+      <p class="svc-desc">Comprehensive top-to-bottom cleaning designed to get your bond back. We cover everything from kitchen appliances to bathrooms — no shortcuts.</p>
+    </div>
+
+    <div class="svc-card fade-up stagger-5">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M10 20v-5h4v5"/></svg>
+      </div>
+      <div class="svc-name">Builders Cleaning</div>
+      <p class="svc-desc">Specialised post-construction cleaning for new homes and renovations — removing builder's dust, debris, and residue so your property is move-in ready.</p>
+    </div>
+
+    <div class="svc-card fade-up stagger-6">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="svc-name">Spring Cleaning</div>
+      <p class="svc-desc">A thorough deep clean of all the hard-to-reach areas that regular cleaning misses. Perfect for a seasonal refresh that leaves your space looking brand new.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <img src="https://www.ashburtoncleaning.co.nz/wp-content/uploads/2020/10/domestic-cleaning.jpg" alt="Ashburton Cleaning Services team at work">
+      <div class="about-badge">
+        <div class="about-badge-n">20+</div>
+        <div class="about-badge-l">Years in the<br>industry</div>
+      </div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="eyebrow">About us</div>
+      <h2 class="sh">Locally owned.<br>Professionally run.</h2>
+      <p class="sec-body">Ashburton Cleaning Services has been serving Mid Canterbury for over two decades. We're not a franchise — when you deal with us, you deal directly with the owner. That means real accountability, real consistency, and a team that genuinely cares about the result.</p>
+      <div class="about-points">
+        <div class="a-point">
+          <div class="a-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-point-text">
+            <strong>Professionally trained staff</strong>
+            <span>Every team member is trained to our standards — so you get a consistent clean, every visit.</span>
+          </div>
+        </div>
+        <div class="a-point">
+          <div class="a-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-point-text">
+            <strong>Police-vetted for your peace of mind</strong>
+            <span>All staff are police-vetted. You can trust the people we send into your home or business.</span>
+          </div>
+        </div>
+        <div class="a-point">
+          <div class="a-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-point-text">
+            <strong>Eco-friendly and sustainable</strong>
+            <span>We're committed to environmentally friendly products and practices — clean for you and the planet.</span>
+          </div>
+        </div>
+        <div class="a-point">
+          <div class="a-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="a-point-text">
+            <strong>Flexible scheduling</strong>
+            <span>We work around your routine — early mornings, evenings, weekends. Whatever works for you.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-head fade-up">
+    <div>
+      <div class="eyebrow">Our work</div>
+      <h2 class="sh">Spotless results,<br>every time.</h2>
+    </div>
+    <p style="font-size:.88rem;color:var(--body);max-width:200px;text-align:right;line-height:1.65">Serving homes and businesses across Ashburton and Mid Canterbury.</p>
+  </div>
+  <div class="gallery-grid fade-up">
+    <div class="g-item">
+      <img src="https://www.ashburtoncleaning.co.nz/wp-content/uploads/2020/10/spring-cleaning-2.jpg" alt="Spring deep clean — Ashburton Cleaning Services">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80&fit=crop" alt="Professional domestic cleaning">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1527515545081-5db817172677?w=800&q=80&fit=crop" alt="Commercial floor cleaning">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&fit=crop" alt="Window cleaning service">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80&fit=crop" alt="Kitchen cleaning detail">
+      <div class="g-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-top fade-up">
+    <div class="g-badge">
+      <div class="g-badge-label">Google Rating</div>
+      <div class="g-score">5.0</div>
+      <div class="g-stars">
+        <span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span><span class="g-star">★</span>
+      </div>
+      <div class="g-count">on Google</div>
+      <a href="#contact" class="review-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Leave a Review
+      </a>
+    </div>
+    <div class="reviews-intro">
+      <div class="eyebrow">What clients say</div>
+      <h2 class="sh">Trusted across<br>Ashburton.</h2>
+      <p>From local businesses to family homes, our clients keep coming back because we deliver exactly what we promise — every single visit.</p>
+    </div>
+  </div>
+  <div class="reviews-grid fade-up">
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#00b4cc,#0096b0)">P</div>
+        <div>
+          <div class="rev-name">Presbyterian Support</div>
+          <div class="rev-role">Ashburton</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"ACS clean our offices and have consistently done a great job. They're flexible with arrangements and we've always been able to trust them completely."</p>
+      <div class="rev-source">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Ashburton
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#163849,#1f4a5e)">R</div>
+        <div>
+          <div class="rev-name">Rebecca</div>
+          <div class="rev-role">Cartwrights</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"The team does a great job — sparkling clean every time. They're efficient and very easy to deal with. Wouldn't hesitate to recommend them to anyone."</p>
+      <div class="rev-source">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Mid Canterbury
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-header">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,#0e9f8c,#0cb4cc)">L</div>
+        <div>
+          <div class="rev-name">Louise & Neil Clucas</div>
+          <div class="rev-role">Residential Client</div>
+        </div>
+      </div>
+      <div class="rev-stars"><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span><span class="r-star">★</span></div>
+      <p class="rev-text">"Extremely happy with our weekly clean. The team have all become like family — even the cat loves to see them come. Reliable, thorough, and genuinely lovely people."</p>
+      <div class="rev-source">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review · Ashburton
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="sh">Ready for a<br>cleaner space?</h2>
+      <p>Send us a message and we'll get back to you within 48 hours with a tailored quote. Or give us a call — we're always happy to talk through what you need.</p>
+      <div class="contact-details">
+        <div class="c-row">
+          <div class="c-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Phone</div>
+            <a href="tel:033072656" class="c-val">03 307 2656</a>
+            <a href="tel:0273072656" class="c-val" style="margin-top:.1rem;font-size:.84rem;color:var(--body)">027 307 2656</a>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Email</div>
+            <a href="mailto:info@ashburtoncleaning.co.nz" class="c-val">info@ashburtoncleaning.co.nz</a>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Location</div>
+            <span class="c-val" style="cursor:default">PO Box 133, Ashburton</span>
+            <span style="font-size:.82rem;color:var(--body);display:block;margin-top:.1rem">Mid Canterbury, New Zealand</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="contact-form-wrap">
+        <div class="form-title">Request a Free Quote</div>
+        <form action="https://api.staticforms.xyz/submit" method="post" id="contactForm">
+          <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+          <input type="hidden" name="subject" value="New enquiry — Ashburton Cleaning Services">
+          <input type="hidden" name="replyTo" value="@">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" name="firstName" placeholder="Jane" required>
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" name="lastName" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="jane@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="021 000 0000">
+          </div>
+          <div class="form-group">
+            <label>Service needed</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service…</option>
+              <option>Commercial Cleaning</option>
+              <option>Domestic / House Cleaning</option>
+              <option>Window Cleaning</option>
+              <option>End of Tenancy Cleaning</option>
+              <option>Builders Cleaning</option>
+              <option>Spring / Deep Cleaning</option>
+              <option>Not sure — send me info</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell us about the property, frequency you're after, or any specific requirements…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="formBtn">Send Enquiry →</button>
+          <p class="form-note">We typically respond within 48 hours.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Ashburton Cleaning Services</div>
+    <div class="foot-tagline">"Cleaning to a standard, not a price."</div>
+    <div class="foot-copy">© 2025 Ashburton Cleaning Services · PO Box 133, Ashburton · 03 307 2656</div>
+  </div>
+  <div class="foot-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobMenu = document.getElementById('mobMenu');
+hamburger.addEventListener('click', () => mobMenu.classList.toggle('open'));
+function closeMob() { mobMenu.classList.remove('open'); }
+
+// Fade-up observer
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+  { threshold: 0.07 }
+);
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('formBtn');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  const data = {};
+  new FormData(this).forEach((v, k) => data[k] = v);
+  try {
+    const res = await fetch('https://api.staticforms.xyz/submit', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      btn.textContent = '✓ Enquiry sent!';
+      btn.style.background = '#10b981';
+      this.reset();
+    } else {
+      btn.textContent = 'Error — try again';
+      btn.style.background = '#ef4444';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Network error — try again';
+    btn.style.background = '#ef4444';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
